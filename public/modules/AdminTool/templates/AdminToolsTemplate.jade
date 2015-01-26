@@ -1,0 +1,39 @@
+link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+script(type='text/javascript', src='http://code.jquery.com/jquery.min.js')
+script(src='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js')
+link(href='/modules/AdminTool/stylesheets/adminTools.css', rel='stylesheet')
+.top-bar
+    .tb.logo
+.login(align='center')
+    .vertical-space-40px
+    div
+        p.login-text Log in to Checktom admin
+    .vertical-space-40px
+    form#LoginForm
+        .row
+            .col-md-4.col-md-offset-4
+                .form-group
+                    input#inputEmail.form-control(type='email', placeholder='Email')
+        .row
+            .col-md-4.col-md-offset-4
+                .form-group
+                    input#inputPassword.form-control(type='password', placeholder='Password')
+        .vertical-space-20px
+        button.btn.btn-custom(type='submit') SIGN IN
+        .vertical-space-20px
+
+    div
+        p.create-text Create test admin login
+    .vertical-space-40px
+    form#adminForm
+        .row
+            .col-md-4.col-md-offset-4
+                .form-group
+                    input#inputEmail2.form-control(type='email', placeholder='Email')
+        .row
+            .col-md-4.col-md-offset-4
+                .form-group
+                    input#inputPassword2.form-control(type='password', placeholder='Password')
+        .vertical-space-20px
+        button.btn.btn-custom(type='submit') Create
+        .vertical-space-20px

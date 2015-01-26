@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        .inputWrong {
+            background-color: rgb(255, 0, 0);
+            background-color: rgba(255, 0, 0, 0.5);
+            border: 2px solid red;
+            border-radius: 3px;
+        }
+        .inputCorrect {
+            background-color: white;
+            border: 2px solid blue;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="input" class="inputWrong">
+    <div id="inputWrong" style="background-color:#bebebe; width:200px; text-align:center;border-radius:3px;">Invalid price.<br/>Example of valid price: 100,50</div>
+</input>
+<script type="text/javascript">
+    function shortenText(text, font, maxWidth) {
+        var dotLength = getTextWidth('...', font);
+        var maxTextWidth = maxWidth-dotLength;
+        if(getTextWidth(text, font) <= maxWidth) return text;
+        else {
+            return removeLastCharTillOk(text.substr(0, text.length-1), font, maxWidth);
+        }
+        function getTextWidth(text, font) {
+            if (!getTextWidth.fakeEl) getTextWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+            getTextWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
+            return getTextWidth.fakeEl.width();
+        }
+        function removeLastCharTillOk(text, font, maxWidth) {
+            var dotLength = getTextWidth('...', font);
+            var maxTextWidth = maxWidth-dotLength;
+            if(getTextWidth(text, font) <= maxTextWidth) return text + '...';
+            return removeLastCharTillOk(text.substr(0, text.length-1), font, maxWidth);
+        }
+    }
+
+    function convertTextToPrice(text) {
+        return text.replace(/,/g, '').replace(/\./g, '');
+    }
+
+    function convertTextToPrice2(text) {
+        text = text.replace(/,/g, '.');
+    }
+
+    function convertTextToNumber(text) {
+
+    }
+
+    function priceInputValidator(text) {
+        var acceptable = true, hasComma = false;
+        for(var i = 0; i < text.length; i++) {
+            var c = text.charAt(i);
+            if(isNaN(c)) {
+                if(c == ',') {
+                    if(i == 0) acceptable = false;
+                    if(hasComma) acceptable = false;
+                    else hasComma = true;
+                }
+                else acceptable = false;
+            }
+        }
+        return acceptable;
+    }
+    $(function() {
+        $('#inputWrong').hide();
+        $('#input').on('input', function() {
+            var text = $('#input').val();
+            if(priceInputValidator(text)) {
+                $('#inputWrong').hide();
+                $('#input').removeClass('inputWrong');
+                $('#input').addClass('inputCorrect');
+            } else {
+                $('#inputWrong').show();
+                $('#input').removeClass('inputCorrect');
+                $('#input').addClass('inputWrong');
+            }
+        })
+    });
+
+    $(document).ready(function() {
+        $('#test').html(convertTextToPrice('1,0,0,0.0.0.0,0.0'));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+#navigation
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+        .container
+            .row
+                // SEARCH BAR COLUMN
+                #nav-columnbar1.col-md-4.col-md-push-4
+                    .nav-center-horizontally.nav-fixheight
+                        .nav-center-vertically.nav-center-vertically-logofix
+                            img.nav-logo(src='../assets/img/checktomlogo.png')
+                #nav-columnbar2.col-md-4.col-md-pull-4
+                    .nav-center-horizontally.nav-fixheight
+                        .nav-center-vertically.nav-center-vertically-searchfix
+                            form.navbar-form.navbar-left.nav-no-padding(action='#', role='search')
+                                .form-group
+                                    .input-group
+                                        input#navbarInput-01.form-control(type='search', placeholder='What are you looking for?')
+                // RIGHTER COLUMN
+                .col-md-4.nav-no-padding
+                    // NEW CONTAINER TO SPLIT THE THREE ELEMENTS
+                    .container
+                        .row
+                            // ADD NEW ITEM COLUMN
+                            .col-xs-6.col-md-2
+                                .nav-center-horizontally.nav-fixheight
+                                    .nav-center-vertically.nav-center-vertically-addfix
+                                        button#addNewItem.btn.btn-embossed.btn-success
+                                            | Add New Item
+                            // NOTIFICATION ICON COLUMN
+                            .col-xs-3.col-md-1
+                                .nav-center-horizontally.nav-fixheight
+                                    .nav-center-vertically.nav-center-vertically-profilefix
+                                        #nav-notification-menu.btn-group.select.mbn
+                                            button#nav-profile(data-toggle='dropdown')
+                                                .glyphicon.glyphicon-bell.nav-notification
+                                            ul.dropdown-menu.dropdown-menu-right.nav-dropdown-menu-whitebackground(role='menu')
+                                                li(rel='0')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left
+                                                            | Insert feed here
+                                                li.nav-dropdown-menu-item-logout(rel='1')
+                                                    hr
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left.nav-notification-menu-span-browseolder
+                                                            | Browse older notifications
+                            // PROFILE ICON COLUMN
+                            .col-xs-3.col-md-1
+                                .nav-center-horizontally.nav-fixheight
+                                    .nav-center-vertically.nav-center-vertically-profilefix
+                                        #nav-profile-menu.btn-group.select.mbn
+                                            button#nav-profile(data-toggle='dropdown')
+                                                .glyphicon.glyphicon-user
+                                            // <span class="dropdown-arrow"></span>
+                                            ul#dropdown-menu-profile.dropdown-menu.dropdown-menu-right.nav-dropdown-menu-whitebackground(role='menu')
+                                                li(rel='0')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left
+                                                            | My items
+                                                li(rel='1')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left
+                                                            | Watch list
+                                                li(rel='2')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left
+                                                            | My search
+                                                li(rel='3')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left
+                                                            | My groups
+                                                li(rel='4')
+                                                    a.opt(tabindex='-1', href='ProfileSettings.html')
+                                                        span.pull-left
+                                                            | Profile settings
+                                                li.nav-dropdown-menu-item-logout(rel='5')
+                                                    a.opt(tabindex='-1', href='#')
+                                                        span.pull-left.nav-profile-menu-span-logout
+                                                            | Log out
+                                                        span.pull-right.fui-power.nav-profile-menu-span-logout-glyph
+#fadeBackground
+// ADD NEW ITEM BOX
+#addNewItemBox
+    .container.whiteboard
+        .row
+            .col-md-12.cancelAddNewItemWrapper
+                .cancel
+                    button#cancelAddNewItem
+                        span.fui-cross
+            .col-md-3
+                span.fui-arrow-right
+                | Headline
+                br
+                .form-group
+                    input#addNewItemHeadline.form-control.input-lg.headline(type='text', value='', placeholder='Retro Bike')
+            .col-md-6
+                span.fui-list
+                | Description
+                br
+                textarea.form-control.addNewItemDescription(rows='3')
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28” aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminimum parts
+                br
+            .col-md-3
+                span.fui-image
+                | Pictures
+                br
+                div
+                    span.btn.btn-primary.btn-file.btn-upload-image
+                        span.fileinput-new Upload
+                        input(type='file', name='...')
+        .row
+            .col-md-3
+                span.fui-star
+                | Price
+                .form-group
+                    input#addNewItemPrice.form-control.input-lg.price(type='text', value='', placeholder='1800')
+                label.checkbox(for='addNewItemPriceIsNegotiable')
+                    span.icons
+                        span.first-icon.fui-checkbox-unchecked
+                        span.second-icon.fui-checkbox-checked
+                    input#addNewItemPriceIsNegotiable(type='checkbox', value='', data-toggle='checkbox')
+                    | The price is negotiable
+                label.checkbox(for='addNewItemGiveAwayForFree')
+                    span.icons
+                        span.first-icon.fui-checkbox-unchecked
+                        span.second-icon.fui-checkbox-checked
+                    input#addNewItemGiveAwayForFree(type='checkbox', value='', data-toggle='checkbox')
+                    | Give away for free
+            .col-md-6
+                span.fui-tag
+                | Hashtag
+                .tagsinput
+                    .tagsinput-add-container
+                        .tagsinput-add
+                        input(value='', data-default='', style='color: rgb(102, 102, 102); width: 100px;')
+            .col-md-3
+                button#addNewItemSubmit.btn.btn-submit
+                    | Submit
+// WHITEBOARD
+#searchSpec
+    .container
+        .row
+            #whiteboard.col-md-10.col-md-offset-1.col-lg-10.col-lg-offset-1
+                .col-md-3
+                    #left
+                        #location
+                            .itemTitleWrapper
+                                span.glyphicon.glyphicon-map-marker
+                                p Location
+                            input#searchSpecLocation.form-control(type='text', placeholder='Select Your Location')
+                        #distance
+                            .itemTitleWrapper
+                                span.glyphicon.glyphicon-arrow-right
+                                p Distance
+                            #distanceSlider
+                                .distanceNr 0
+                                .ui-slider-segment(style='margin-left: 20%;')
+                                    .distanceNr.distance1 1
+                                .ui-slider-segment(style='margin-left: 20%;')
+                                    .distanceNr.distance5 5
+                                .ui-slider-segment(style='margin-left: 20%;')
+                                    .distanceNr.distance10 10
+                                .ui-slider-segment(style='margin-left: 20%;')
+                                    .distanceNr.distance15 15
+                                .distanceNr.distanceUnlimited ∞
+                .col-md-6
+                    #middle
+                        #searchHashtag
+                            .itemTitleWrapper
+                                span.fui-tag
+                                p Hashtag
+                            .tagsinput
+                                .tagsinput-add-container
+                                    .tagsinput-add
+                                    input(value='', data-default='', style='color: rgb(102, 102, 102); width: 7px;')
+                        #searchPrice
+                            .itemTitleWrapper
+                                span.glyphicon.glyphicon-usd
+                                p Price
+                            #priceSlider
+                                .priceNr0 0
+                                .priceNrUnlimited ∞
+                                .sliderHandleWrapper
+                                    a.ui-slider-handle.ui-state-default.ui-corner-all.mysliderhandle
+                                        .tooltip.fade.bottom.in.tooltip-light.priceToolTip
+                                            .tooltip-arrow
+                                            .tooltip-inner 500
+                .col-md-3
+                    #right
+                        #matches
+                            p Matches
+                            p.results 69
+// Item
+#main(role='main')
+    #itemList
+        .searchItem
+            img(src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqIQQVOyGqUYmV9I0LX_Mn1loBFfVafTm187b7NA62ZnD804G3Xg', height='200px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIwMnX5RkcCV-xBsxqat3f4qv1caxUK5vFJ7qiQe83OPvzmB0_', height='400px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqIQQVOyGqUYmV9I0LX_Mn1loBFfVafTm187b7NA62ZnD804G3Xg', height='250px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqIQQVOyGqUYmV9I0LX_Mn1loBFfVafTm187b7NA62ZnD804G3Xg', height='300px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 123
+        .searchItem
+            img(src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqIQQVOyGqUYmV9I0LX_Mn1loBFfVafTm187b7NA62ZnD804G3Xg', height='150px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqIQQVOyGqUYmV9I0LX_Mn1loBFfVafTm187b7NA62ZnD804G3Xg', height='400px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ICTVZeq4XACqaDXpueBlC3gtxc0kYT8Vg_xVntWKw_XKw8V1QQ', height='200px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122
+        .searchItem
+            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ICTVZeq4XACqaDXpueBlC3gtxc0kYT8Vg_xVntWKw_XKw8V1QQ', height='300px')
+            .priceBox
+                | 2.000 DKK
+            .itemTextBox
+                h3 Retro bike
+                p
+                    | Totally restored retro fixi-bike with premium parts, no gear, 28" aluminium city tires, Brooks vintage saddle, Retro paddles, all aluminium parts
+            hr
+            .itemFooter
+                .time
+                    span.glyphicon.glyphicon-time
+                    | 2 days
+                .view
+                    span.glyphicon.glyphicon-eye-open
+                    | 86
+                .like
+                    span.glyphicon.glyphicon-heart-empty
+                    | 122

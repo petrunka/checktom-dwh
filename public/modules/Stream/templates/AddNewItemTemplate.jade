@@ -1,0 +1,43 @@
+.container
+    .row
+        #whiteboard.col-md-10.col-md-offset-1.col-lg-10.col-lg-offset-1
+            .col-md-3
+                #left
+                    #headline
+                        p Headline
+                        input.form-control(type='text', placeholder='Type the headline',id='AddNewItemTitle')
+                    #AddItemLocation
+                        p Location
+                        input#AddItemLocationTextField.form-control(type='text', placeholder='Select Your Location')
+                    #price
+                        p Price
+                        input.form-control(type='text', placeholder='0',id='priceInput')
+                    #negotiable
+                        label.checkbox(for='checkbox1')
+                            input#NegotiableCheckbox(type='checkbox', value='1', data-toggle='checkbox')
+                            | The price is negotialble
+                    #giveaway
+                        label.checkbox(for='checkbox1')
+                            input#FreeCheckbox(type='checkbox', value='2', data-toggle='checkbox')
+                            | Give away for free
+            .col-md-6
+                #middle
+                    #description
+                        p Description
+                        textarea.form-control(form='UploadForm',rows='6', placeholder='Give a brief description about this item',name='description')
+                    #hashtag
+                        p Hashtag
+                        input.tagsinput(id='AddNewItemTags',style='height:48px;', value='')
+            .col-md-3
+                #right
+                    .picture
+                        p Picture
+                            form#UploadForm(method='post', enctype='multipart/form-data')
+                                input#image(type='file', name='image0', accept='image/*').btn.btn-wide.btn-primary.mrm
+                    .social
+                        p Share with friends
+                        a.btn.btn-wide.btn-primary.mrm(href='#fakelink')
+                            span.fui-facebook
+                            | On Facebook
+                    #submit
+                        input(form='UploadForm',type='submit',value='Submit').btn.btn-wide.btn-primary.mrm

@@ -1,0 +1,153 @@
+html
+    head(lang='en')
+        meta(charset='UTF-8')
+        title Dashboard
+        //
+           Loading Bootstrap
+        link(href='/assets/libs/flatui/bootstrap/css/bootstrap.css', rel='stylesheet')
+
+        //
+           Loading Flat UI
+        link(href='/assets/libs/flatui/css/flat-ui.css', rel='stylesheet')
+        link(href='/assets/css/1344_24_col.css', rel='stylesheet')
+        link(href='/modules/AdminTool/stylesheets/dashboard.css', rel='stylesheet')
+        link(href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css', rel='stylesheet')
+        //
+           Global CSS for the page and tile
+
+    body
+        #navigation
+            nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+                #nav-columnbar1.col-md-4.col-md-push-4
+                    .nav-center-horizontally.nav-fixheight
+                        .nav-center-vertically.nav-center-vertically-logofix
+                            img.nav-logo(src='../assets/img/checktomlogo.png')
+        .container_24
+        .container
+            #tools.grid_3
+                br
+                #tools.big
+                    p Tools
+                    br
+                    label
+                        .button#dashboard Dashboard
+                    br
+                    label
+                        .button#viewAllUsers View All Users
+                    br
+                    label
+                        .button#activitylog Activity
+                    br
+                    label
+                        .button#adsPerDate Get ads per date
+                    br
+                    label
+                        .button#newAndTotalUsersPerMonth New and total users per month
+                    br
+                    label
+                        .button#bounces Bounces Per Month
+                    br
+                    label
+                        .button#avgTimeOnPage Average time on page
+                    br
+                    label
+                        .button#percentNewSession Percent new sessions
+                    br
+                    label
+                        .button#usersPerDeviceCategory Users per device category
+                    br
+                    label
+                        .button#logout Logout
+
+            #main-view
+                p#titleLabel
+                #datePicker.topInputField
+                    .form-group
+                        .input-group
+                            span.input-group-btn
+                                button.btn(type='button')
+                                    span.fui-calendar
+                            input#datepicker-01.form-control.datepicker(type='text', value='2014-10-15')
+
+                #datePicker1.topInputField
+                    .form-group
+                        .input-group
+                            span.input-group-btn
+                                button.btn(type='button')
+                                    span.fui-calendar
+                            input#datepicker-02.form-control.datepicker(type='text', value='2014-10-21')
+
+                #logButton1
+                    button#getLog(type='click', value='getLog') Get Log
+                #logButton2
+                    button#getSecondLog(type='click', value='getSecondLog') Get Log
+            #left.grid_7
+                br
+                #newUsers.small
+                    p#labelNewUsers New users on Checktom
+                    p#mainView
+                    p#nu
+                    .row
+                        col-md-12
+                            div#canvasArea
+                                canvas#nu1(width='960px', height=250, overflow='hidden')
+
+                    .row
+                        col-md-12
+                            div#canvasArea2
+                                canvas#nu2(width=960, height=250)
+
+                    .row
+                        col-md-12
+                            div#canvasArea3
+                                canvas#nu3(width=960, height=250)
+                    .row
+                        col-md-12
+                            div#canvasArea4
+                                canvas#nu4(width=960, height=250)
+                    .row
+                        col-md-12
+                            div#canvasArea5
+                                canvas#nu5(width=960, height=250)
+                    .row
+                        col-md-12
+                            div#canvasArea6
+                                canvas#nu6(width=960, height=250)
+
+                br
+                #totalUsers.small
+                    p Total users of Checktom
+                    p#tu
+                br
+                #nr5.small
+                    p New and total users per month
+                    p#ad1
+            #right.grid_7
+                br
+                #newAds.small
+                    p New ads
+                    p#na
+                br
+                #totalAds.small
+                    p Total ads
+                    p#ta
+                br
+                #nr6.small
+                    p Percent new sessions
+                    p#ad2
+
+                input#count(type='hidden')
+
+            #third.grid_7
+                br
+                #bounceRate.small
+                    p#labelNewUsers Bounce Rate
+                    p#brt
+                br
+                #usersPerDevice.small
+                    p Users per device category
+                    p#upd
+                br
+                #avgTimeOnPageView.small
+                    p Average time on page
+                    p#atp

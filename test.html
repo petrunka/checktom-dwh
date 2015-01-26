@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- Loading Bootstrap -->
+    <link href="public/assets/libs/flatui/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="public/assets/libs/flatui/css/flat-ui.css" rel="stylesheet">
+    <link href="public/assets/css/960_12_col.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: Lato;
+            font-weight:200;
+        }
+        /* This is a single-line comment */
+        .top-bar{
+            background-color:red;
+            height :60px;
+            width:auto;
+            background-attachment:fixed;
+            background-position:top;
+        }
+        .logo {
+            height: 50px;
+            margin: 0px;
+            display: block;
+            background: url('public/assets/img/checktomlogo.png') no-repeat;
+            background-position:center 15px;
+        }
+        .divider {
+            width:420px;
+            text-align:center;
+            font-size:18px;
+            margin-top:-10px;
+        }
+        .left {
+            float:left;
+            margin-right: auto;
+            background:black;
+            border:0;
+            height: 1px;
+            width:120px;
+        }
+        .right {
+            float:right;
+            margin-left: none;
+            background:black;
+            border:0;
+            height: 1px;
+            width:120px;
+        }
+        .container {
+            width: 1000px;
+            height:1000px;
+            background-color: green;
+        }
+        .tools {
+            background-color: yellow;
+            text-align: left;
+            margin: auto;
+        }
+        .small {
+            width:350px;
+            height:300px;
+            background-color: blue;
+            margin: auto;
+        }
+        .big {
+            width:200px;
+            height: 960px;
+            margin: auto;
+            background-color: #ffff00;
+        }
+        p {
+            text-align: center;
+            color: #000000;
+        }
+    </style>
+
+    <!-- Global CSS for the page and tiles -->
+</head>
+<body>
+<header class="top-bar">
+        <div class="logo"></div>
+
+</header>
+<script src="public/assets/libs/flatui/js/jquery-1.8.3.min.js"></script>
+<script src="public/assets/libs/flatui/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="public/assets/libs/flatui/js/jquery.ui.touch-punch.min.js"></script>
+<script src="public/assets/libs/flatui/js/bootstrap.min.js"></script>
+<script src="public/assets/libs/flatui/js/bootstrap-select.js"></script>
+<script src="public/assets/libs/flatui/js/bootstrap-switch.js"></script>
+<script src="public/assets/libs/flatui/js/flatui-checkbox.js"></script>
+<script src="public/assets/libs/flatui/js/flatui-radio.js"></script>
+<script src="public/assets/libs/flatui/js/jquery.tagsinput.js"></script>
+<script src="public/assets/libs/flatui/js/jquery.placeholder.js"></script>
+<script src="public/assets/libs/flatui/js/application.js"></script>
+<div class="container_12, container">
+
+    <div id="left" class="grid_5">
+    <br>
+        <div class="small" id="newUsers">
+            <p>New users on Checktom</p>
+    </div>
+        <br>
+    <div class="small" id="totalUsers">
+        <p>Total users of Checktom</p>
+    </div>
+        <br>
+    <div class="small" id="nr5">
+        <p>Analytics Data</p>
+    </div>
+    </div>
+    <div id="right" class="grid_5">
+        <br>
+    <div class="small" id="newAds">
+        <p>New ads</p>
+    </div>
+    <br>
+    <div class="small" id="totalAds">
+        <p>Total ads</p>
+    </div>
+        <br>
+    <div class="small" id="nr6">
+        <p>Analytics data</p>
+    </div>
+
+    </div>
+    <div id="tools" class="grid_2">
+        <br>
+        <div class="big" id="tools">
+            <p>Tools</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
