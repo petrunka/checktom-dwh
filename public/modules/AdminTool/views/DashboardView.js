@@ -427,27 +427,26 @@ define(
             drawUsers: function (data) {
                 if ($('#User').length === 0) {
                     $('#main-view').append("<label id='User'></label>");
-                    $("#User").append("<tr><td align='middle'>Name</td> | <td align='middle'>Email</td><td align='middle'>Status</td></tr><br>");
-                    $("#User").append("<tr id='dummyUser'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='0'>0</input></td></tr><br>");
+                    $("#User").append("<tr><td align='middle'>Profile picture</td> | <td align='middle'>Name</td> | <td align='middle'>Email</td> | <td align='middle'>Created at</td> |<td align='middle'>Status</td></tr><br>");
+                    $("#User").append("<tr id='dummyUser'><td align='middle'></td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td><td align='middle'></td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='0'>0</input></td></tr><br>");
                     $('#dummyUser').hide();
                     for (var i = 0; i < data.length; i++) {
                         var checked = "";
                         if (data[i].active) {
                             checked = "checked='checked'";
                         }
-                        $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
+                        $("#User").append("<tr id='" + data[i].email + "'><td align='middle'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle'>"+data[i].created_at+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
                     }
                 } else {
                     $("#User").empty();
-                    $("#User").append("<tr><td align='middle'>Name</td> | <td align='middle'>Email</td><td align='middle'>Status</td></tr><br>");
-                    $("#User").append("<tr id='dummyUser'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='0'>0</input></td></tr><br>");
+                    $("#User").append("<tr><td align='middle'>Profile picture</td> | <td align='middle'>Name</td> | <td align='middle'>Email</td> | <td align='middle'>Created at</td> |<td align='middle'>Status</td></tr><br>");                    $("#User").append("<tr id='dummyUser'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>0</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='0'>0</input></td></tr><br>");
                     $('#dummyUser').hide();
                     for (var i = 0; i < data.length; i++) {
                         var checked = "";
                         if (data[i].active) {
                             checked = "checked='checked'";
                         }
-                        $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
+                        $("#User").append("<tr id='" + data[i].email + "'><td align='middle'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle'>"+data[i].created_at+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
                     }
                 }
             },
