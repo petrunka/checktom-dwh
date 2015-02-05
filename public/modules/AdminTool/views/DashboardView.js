@@ -439,7 +439,7 @@ define(
                         if (data[i].active) {
                             checked = "checked='checked'";
                         }
-                            $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td> | <td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>"+data[i].created_at+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
+                            $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td> | <td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>"+createdDate+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
                     }
                 } else {
                     $("#User").empty();
@@ -454,7 +454,7 @@ define(
                         if (data[i].active) {
                             checked = "checked='checked'";
                         }
-                            $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+data[i].created_at+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
+                            $("#User").append("<tr id='" + data[i].email + "'><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+data[i].profilePicture +"</td> | </td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].name + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + data[i].email + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'>"+createdDate+"</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'><input type='checkbox' id='check' value='" + data[i].email + "' method='post' " + checked + " ></input></td></tr><br>");
 
                     }
                 }
