@@ -635,6 +635,9 @@ define(
                 $('#datePicker1').hide();
                 $('#getLog').hide();
                 $('#getSecondLog').hide();
+                if ($('#container').length != 0) {
+                    $('#container').remove();
+                }
             },
             activitylog: function (event) {
                 event.preventDefault();
