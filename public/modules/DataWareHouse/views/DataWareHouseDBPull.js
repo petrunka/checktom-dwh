@@ -18,7 +18,7 @@ function getAllUsers(callback) {
             for (var i = 0; i < docs.length; i++) {
                 var dataSet = USM;
                 dataSet = docs[i];
-                dat.push(dataSet + '/n');
+                dat.push(dataSet + '\n');
             }
         }
         callback(dat);
