@@ -498,7 +498,7 @@ define(
                     for (var i = 0; i < adsData.length; i++) {
                         var date = adsData[i].Date.split("T");
                         var dateCreated = date[0].split("-");
-                        $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + dateCreated + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + adsData[i].CreatedAt + "</td></tr><br>");
+                        $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + dateCreated + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + dateCreation + "</td></tr><br>");
                     }
                 } else {
                     $("#Ads").empty();
@@ -508,7 +508,9 @@ define(
                     for (var i = 0; i < adsData.length; i++) {
                         var date = adsData[i].Date.split("T");
                         var dateCreated = date[0].split("-");
-                        $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + dateCreated + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + adsData[i].CreatedAt + "</td></tr><br>");
+                        var date2 = adsData[i].CreatedAt.split("T");
+                        var dateCreation = date2[0].split("-");
+                        $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + dateCreated + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + dateCreation + "</td></tr><br>");
                     }
                 }
             },
@@ -517,20 +519,24 @@ define(
                     $('#main-view').append("<label id='AdsDate'></label>");
                     $("#AdsDate").append("<tr><td align='middle'>Event</td><td align='middle'>Company</td><td>Date</td><td>Pay Status</td><td align='middle'>Created at</td></tr><br>");
                     for (var i = 0; i < adsData.length; i++) {
-                        var date = adsData[i].created_at.split("T");
+                        var date = adsData[i].Date.split("T");
                         var createdDate = date[0].split("-");
+                        var date2 = adsData[i].CreatedAt.split("T");
+                        var dateCreation = date2[0].split("-");
                         if (new Date(createdDate[0], createdDate[1], createdDate[2]) >= new Date(startDate.year, startDate.month, startDate.day) && new Date(createdDate[0], createdDate[1], createdDate[2]) <= new Date(endDate.year, endDate.month, endDate.day)) {
-                            $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + adsData[i].Date + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + adsData[i].CreatedAt + "</td></tr><br>");
+                            $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + createdDate + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + dateCreation + "</td></tr><br>");
                         }
                     }
                 } else {
                     $('#AdsDate').empty();
                     $("#AdsDate").append("<tr><td align='middle'>Event</td><td align='middle'>Company</td><td>Date</td><td>Pay Status</td><td align='middle'>Created at</td></tr><br>");
                     for (var i = 0; i < adsData.length; i++) {
-                        var date = adsData[i].created_at.split("T");
+                        var date = adsData[i].Date.split("T");
                         var createdDate = date[0].split("-");
+                        var date2 = adsData[i].CreatedAt.split("T");
+                        var dateCreation = date2[0].split("-");
                         if (new Date(createdDate[0], createdDate[1], createdDate[2]) >= new Date(startDate.year, startDate.month, startDate.day) && new Date(createdDate[0], createdDate[1], createdDate[2]) <= new Date(endDate.year, endDate.month, endDate.day)) {
-                            $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + adsData[i].Date + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + adsData[i].CreatedAt + "</td></tr><br>");
+                            $("#AdsDate").append("<tr><td align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].EventName + "</td> | <td  align='middle' style='border: 2px #C0C0C0 solid; width: 250px'> " + adsData[i].CompanyName + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'> " + createdDate + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 50px'>" + adsData[i].HasBeenPaid + "</td><td align='middle' style='border: 2px #C0C0C0 solid; width: 150px'>" + dateCreation + "</td></tr><br>");
                         }
                     }
                 }
