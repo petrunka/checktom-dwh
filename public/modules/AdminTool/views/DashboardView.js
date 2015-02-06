@@ -492,7 +492,7 @@ define(
                 }
             },
             drawAds: function () {
-                if ($('#Ads').length === 0) {
+                if ($('#AdsDate').length === 0) {
                     $('#main-view').append("<label id='Ads'></label>");
                     $("#AdsDate").append("<tr><td align='middle'>Event</td><td align='middle'>Company</td><td>Date</td><td>Pay Status</td><td align='middle'>Created at</td></tr><br>");
                     for (var i = 0; i < adsData.length; i++) {
@@ -500,6 +500,7 @@ define(
                     }
                 } else {
                     $("#Ads").empty();
+                    $("#AdsDate").empty();
                     $("#AdsDate").append("<tr><td align='middle'>Event</td><td align='middle'>Company</td><td>Date</td><td>Pay Status</td><td align='middle'>Created at</td></tr><br>");
 
                     for (var i = 0; i < adsData.length; i++) {
