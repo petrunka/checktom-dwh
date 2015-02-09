@@ -21,7 +21,7 @@ function getAllUsers(callback) {
                 data2 = docs[i];
                 dat.push(dataSet);
             }
-            dataSet.sort();
+            //dataSet.sort();
         }
         callback(dat);
     });
