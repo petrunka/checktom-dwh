@@ -20,8 +20,9 @@ function getAllUsers(callback) {
                 dataSet = docs[i];
                 dat.push(dataSet);
             }
+
         }
-        callback(dat);
+        callback(dat.created_at);
     });
 }
 exports.getAllUsers = getAllUsers;
