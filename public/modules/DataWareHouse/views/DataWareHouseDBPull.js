@@ -17,12 +17,28 @@ function getAllUsers(callback) {
         } else {
             for (var i = 0; i < docs.length; i++) {
                 var dataSet, data2 = USM;
-                dataSet = docs[i].created_at;
-                data2 = docs[i];
-                dat.push(dataSet);
+                USM.find({"created_at":docs[i].created_at}, function(err, docs) {
+                    if(err) {
+                        res.send(400, "An error has occurred" + err);
+                    }
+                    else if (docs[0] != null) {
+                        USM.update({"_id": docs[0]._id}, {"created_at": docs[i].created_at}, function (err) {
+                            if (err) {
+                                console.log("Failed to update data in allUsers " + err);
+                            } else {
+                                console.log("Data updated in allUsers");
+                            }
+                        });
+                    }
+                    else {
+                        dataSet = docs[i].created_at;
+                        data2 = docs[i];
+                        dat.push(dataSet);
+                    }
+                });
+
             }
         }
-        data2.sort(function(a,b) {return Date(a.created_at) - Date(b.created_at)});
         callback(dat);
     });
 }
