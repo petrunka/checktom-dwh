@@ -17,12 +17,12 @@ function getAllUsers(callback) {
         } else {
             for (var i = 0; i < docs.length; i++) {
                 var dataSet = USM;
-                dataSet = docs[i];
+                dataSet = docs[i].created_at;
                 dat.push(dataSet);
             }
 
         }
-        callback(dat.created_at);
+        callback(dat);
     });
 }
 exports.getAllUsers = getAllUsers;
