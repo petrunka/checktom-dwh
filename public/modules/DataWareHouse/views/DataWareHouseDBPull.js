@@ -19,11 +19,10 @@ function getAllUsers(callback) {
                 var dataSet, data2 = USM;
                 dataSet = docs[i].created_at;
                 data2 = docs[i];
-                dataSet.sort();
                 dat.push(dataSet);
             }
-            //dataSet.sort();
         }
+        data2.sort(function(a,b) {return Date(a.created_at) - Date(b.created_at)});
         callback(dat);
     });
 }
