@@ -16,9 +16,10 @@ function getAllUsers(callback) {
             res.send(400, "An error has occurred " + err);
         } else {
             for (var i = 0; i < docs.length; i++) {
-                var dataSet = USM;
+                var dataSet, data2 = USM;
                 dataSet = docs[i].created_at;
-                dat.push(dataSet);
+                data2 = docs[i];
+                dat.push(data2);
             }
 
         }
