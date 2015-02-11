@@ -19,7 +19,7 @@ function getAllUsers(callback) {
                 var dataSet, data2 = USM;
                 dataSet = docs[i].created_at;
                 data2 = docs[i];
-                dat.push(dataSet);
+                dat.push(data2);
             }
         }
         callback(dat);
