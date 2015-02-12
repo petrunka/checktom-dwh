@@ -10,7 +10,63 @@ var SessionDurationPerMonth = require('mongoose').model('SessionDurationPerMonth
 var gigsModel = require('mongoose').model('Gigs');
 var users = mongoose.model('User');
 var crypto = require('crypto');
+var Day = new Date();
+var currentMonth = Day.getMonth() + 1;
 
+if(currentMonth<10) {
+    var extendedMonth = '0'+currentMonth;
+    console.log(extendedMonth);
+} else {
+    var extendedMonth = currentMonth;
+    console.log(extendedMonth);
+}
+
+var currentDay = Day.getDate();
+
+if(currentDay<10) {
+    var extendedDay = '0' + currentDay;
+    console.log(extendedDay);
+}
+else {
+    var extendedDay = currentDay;
+    console.log(extendedDay);
+}
+
+switch (extendedMonth) {
+    case '01':
+        var oldDay = extendedDay;
+        var oldMonth = '12';
+        var oldYear = Day.getFullYear() - 1;
+    case '03':
+        if(extendedDay>=29) {
+            var oldDay = 28;
+            var oldMonth = extendedMonth - 1;
+            var oldYear = Day.getFullYear();
+        } else {
+            var oldDay = extendedDay;
+            var oldMonth = extendedMonth - 1;
+            var oldYear = Day.getFullYear();
+        }
+    case '05','07',10,12:
+        if(extendedDay===31) {
+            var oldDay = 30;
+            var oldMonth = extendedMonth - 1;
+            var oldYear = Day.getFullYear();
+        } else {
+            var oldDay = extendedDay;
+            var oldMonth = extendedMonth - 1;
+            var oldYear = Day.getFullYear();
+        }
+    case '02','04','06','08','09',11:
+        var oldDay = extendedDay;
+        var oldMonth = extendedMonth - 1;
+        var oldYear = Day.getFullYear();
+    default: console.log("An error occurred!");
+}
+
+
+var startDay = oldYear + "-" + oldMonth + "-" + oldDay;
+var endDay = Day.getFullYear() + "-" + extendedMonth + "-" + extendedDay;
 //Test function
 exports.roman = function (req, res) {
     console.log('Roman initiated');
@@ -39,6 +95,13 @@ exports.vladimir = function (req, res) {
     });
     console.log("data printed");
 
+};
+
+exports.usersLastMonth = function(req, res) {
+    DBpull.getUsersCreatedAt(startDay,endDay,function(data) {
+        res.send(data);
+    });
+    console.log("data printed");
 };
 
 exports.getAllUsers = function (req, res) {
