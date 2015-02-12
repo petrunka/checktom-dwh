@@ -73,7 +73,7 @@ define(
                         self.drawUsers(userData);
                         $('#User').hide();
                         $("#tu").append("Number of registered users by now: " + totalUsers);
-                        $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
+                        $('#usersAnalytics').append("Total users at Checktom: " + totalUsers + "<br>");
                     }
                 });
                 $.ajax({
@@ -682,7 +682,7 @@ define(
                 $('#getLog').show();
                 $('#getSecondLog').hide();
                 $('#main-view').append('<br><br>');
-                $('#main-view').append('#usersAnalytics');
+                $('#usersAnalytics').show();
                 var $titleLabel = $('#titleLabel');
                 var text = $titleLabel.text();
                 $titleLabel.text(text.replace(text, "User activity log"));
