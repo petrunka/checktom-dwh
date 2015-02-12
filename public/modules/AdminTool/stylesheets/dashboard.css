@@ -105,7 +105,7 @@ p {
     overflow: hidden;
 }
 
-#datePicker, #datePicker1, #getLog, #titleLabel,  #getSecondLog,  #usersAnalytics {
+#datePicker, #datePicker1, #getLog, #titleLabel, #getSecondLog, #usersAnalytics {
     display: none;
 }
 

@@ -678,9 +678,9 @@ define(
                 $('#logLabel').show();
                 $('#datePicker').show();
                 $('#datePicker1').show();
-                $('#main-view').append('<br><br>');
                 $('#getLog').show();
                 $('#getSecondLog').hide();
+                $('#main-view').append('<br><br>');
                 $('#main-view').append('#usersAnalytics');
                 var $titleLabel = $('#titleLabel');
                 var text = $titleLabel.text();
