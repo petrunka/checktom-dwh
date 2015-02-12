@@ -65,8 +65,8 @@ switch (extendedMonth) {
 }
 
 
-var startDay = oldYear + "-" + oldMonth + "-" + oldDay;
-var endDay = Day.getFullYear() + "-" + extendedMonth + "-" + extendedDay;
+var startDay = oldYear + "," + oldMonth + "," + oldDay;
+var endDay = Day.getFullYear() + "," + extendedMonth + "," + extendedDay;
 //Test function
 exports.roman = function (req, res) {
     console.log('Roman initiated');
@@ -100,6 +100,7 @@ exports.vladimir = function (req, res) {
 exports.usersLastMonth = function(req, res) {
     DBpull.getUsersCreatedAt(startDay,endDay,function(data) {
         res.send(data);
+        console.log(data);
     });
     console.log("data printed");
 };
