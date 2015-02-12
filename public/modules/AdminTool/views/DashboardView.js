@@ -556,8 +556,10 @@ define(
                     type: 'GET',
                     success: function (data) {
                         $('#tu').empty();
+                        $('#usersAnalytics').empty();
                         totalUsers = data.length;
                         $("#tu").append("Number of registered users by now: " + totalUsers);
+                        $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
                     }
                 });
                 $.ajax({
@@ -677,6 +679,7 @@ define(
                 $('#datePicker').show();
                 $('#datePicker1').show();
                 $('#main-view').append('<br><br>');
+                $('#main-view').append('#usersAnalytics');
                 $('#getLog').show();
                 $('#getSecondLog').hide();
                 var $titleLabel = $('#titleLabel');
