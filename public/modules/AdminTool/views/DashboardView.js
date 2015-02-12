@@ -73,6 +73,7 @@ define(
                         self.drawUsers(userData);
                         $('#User').hide();
                         $("#tu").append("Number of registered users by now: " + totalUsers);
+                        $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
                     }
                 });
                 $.ajax({
