@@ -679,9 +679,9 @@ define(
                 $('#datePicker').show();
                 $('#datePicker1').show();
                 $('#main-view').append('<br><br>');
-                $('#main-view').append('#usersAnalytics');
                 $('#getLog').show();
                 $('#getSecondLog').hide();
+                $('#main-view').append('#usersAnalytics');
                 var $titleLabel = $('#titleLabel');
                 var text = $titleLabel.text();
                 $titleLabel.text(text.replace(text, "User activity log"));
