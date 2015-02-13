@@ -149,8 +149,10 @@ exports.getActiveUsers = function (req, res) {
 };
 
 exports.getUserByDate = function (req, res) {
-    var startDate = req.query.startDate;
-    var endDate = req.query.endDate;
+    //var startDate = req.query.startDate;
+    //var endDate = req.query.endDate;
+    var startDate = startDay;
+    var endDate = endDay;
     DBpull.getUsersCreatedAt(startDate, endDate, function (err, data) {
         if (err) {
             res.send(200, err);
