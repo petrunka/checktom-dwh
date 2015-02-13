@@ -98,7 +98,7 @@ exports.vladimir = function (req, res) {
 };
 
 exports.usersLastMonth = function(req, res) {
-    DBpull.getUsersCreatedAt(startDay,endDay,function(data) {
+    DBpull.getUsersCreatedAt("2015-01-13","2015-02-13",function(data) {
         res.send(data);
         console.log(data);
     });
