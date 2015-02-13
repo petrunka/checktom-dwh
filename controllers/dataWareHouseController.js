@@ -159,7 +159,7 @@ exports.getUserByDate = function (req, res) {
         } else {
             res.send(200, data);
         }
-    })
+    });
 };
 
 exports.getAdsByDate = function(req, res) {
