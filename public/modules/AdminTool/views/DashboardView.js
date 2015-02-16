@@ -574,29 +574,33 @@ define(
                     type: 'GET',
                     success: function (data) {
                         $('#tu').empty();
-                       // $('#usersAnalytics').empty();
-                        totalUsers = data.length;
-                        $("#tu").append("Number of registered users by now: " + totalUsers);
-                        $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
+                        if ($('#usersAnalytics').isEmpty()) {
+                            totalUsers = data.length;
+                            $("#tu").append("Number of registered users by now: " + totalUsers);
+                            $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
+                        }
                     }
                 });
                 $.ajax({
                     url:'/usersLastMonth',
                     type: 'GET',
                     success: function(data) {
-                        //$('#usersAnalytics').empty();
-                        lastMonthUsers = data.length;
-                        $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
+                        if($('#usersAnalytics').isEmpty()) {
+                            lastMonthUsers = data.length;
+                            $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
+                        }
                     }
                 });
                 $.ajax({
                     url: '/returningUsers',
                     type: 'GET',
                     success: function(data) {
-                        returningUsers = data.length;
-                        $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
+                        if ($('#usersAnalytics').isEmpty()) {
+                            returningUsers = data.length;
+                            $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
+                        }
                     }
-                }); 
+                });
                 $.ajax({
                     url: '/getAds',
                     type: 'GET',
