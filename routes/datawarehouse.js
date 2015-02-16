@@ -8,6 +8,7 @@ module.exports = function (app, passport) {
     app.get('/vladimir', dataWareHouseController.vladimir);
     app.get('/getAllUsers', dataWareHouseController.getAllUsers);
     app.get('/usersLastMonth', dataWareHouseController.usersLastMonth);
+    app.get('/returningUsers', dataWareHouseController.returningUsers);
     app.get('/getAds', dataWareHouseController.getAds);
     app.get('/getNewAds',dataWareHouseController.getNewAds);
     app.get('/getNewAndTotalUsersPerMonth', dataWareHouseController.getNewAndTotalUsersPerMonth);
