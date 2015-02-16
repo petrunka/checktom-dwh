@@ -157,6 +157,7 @@ function getNewUsersLastMonth(callback) {
     var Day = new Date();
     var currentMonth = Day.getMonth();
     var currentDay = Day.getDate();
+    console.log(currentDay + "." + currentMonth);
 
     switch (currentMonth) {
         case 0:
