@@ -25,7 +25,7 @@ define(
         var self;
         var userData;
         var adsData;
-        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers;
+        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers;
         var userPerMonth, sessionPerMonth, bounceRatePerMonth, avrTimeOnPagePerMonthData, percentNewSessionsData;
         var usersPerDeviceCategoryData, newAndTotalUsersPerMonthData;
         var DashboardView = Backbone.Marionette.Layout.extend({
@@ -84,6 +84,15 @@ define(
                         $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
                     }
                 });
+                $.ajax({
+                    url: '/returningUsers',
+                    type: 'GET',
+                    success: function(data) {
+                        returningUsers = data.length;
+                        $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
+                    }
+                });
+                
                 $.ajax({
                     url: '/getAds',
                     type: 'GET',
