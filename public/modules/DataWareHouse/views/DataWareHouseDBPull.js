@@ -179,6 +179,8 @@ function getNewUsersLastMonth(callback) {
             break;
         //cases 4,6,9
         case 4:
+        case 6:
+        case 9:
             if(currentDay===31) {
                 var oldDay = 30;
                 var oldMonth = currentMonth - 1;
@@ -191,6 +193,11 @@ function getNewUsersLastMonth(callback) {
             break;
         //cases 1,3,5,7,8,10
         case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
             var oldDay = currentDay;
             var oldMonth = currentMonth - 1;
             var oldYear = currentYear;
