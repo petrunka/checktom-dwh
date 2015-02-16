@@ -155,58 +155,40 @@ exports.getNewUsersToday = getNewUsersToday;
 function getNewUsersLastMonth(callback) {
     console.log("getUsersLastMonth started");
     var Day = new Date();
-    var currentMonth = Day.getMonth() + 1;
-
-    if(currentMonth<10) {
-        var extendedMonth = '0'+currentMonth;
-        console.log(extendedMonth);
-    } else {
-        var extendedMonth = currentMonth;
-        console.log(extendedMonth);
-    }
-
+    var currentMonth = Day.getMonth();
     var currentDay = Day.getDate();
 
-    if(currentDay<10) {
-        var extendedDay = '0' + currentDay;
-        console.log(extendedDay);
-    }
-    else {
-        var extendedDay = currentDay;
-        console.log(extendedDay);
-    }
-
-    switch (extendedMonth) {
-        case '01':
-            var oldDay = extendedDay;
-            var oldMonth = '12';
+    switch (currentMonth) {
+        case 0:
+            var oldDay = currentDay;
+            var oldMonth = 11;
             var oldYear = Day.getFullYear() - 1;
             break;
-        case '03':
+        case 2:
             if(extendedDay>=29) {
                 var oldDay = 28;
-                var oldMonth = extendedMonth - 1;
+                var oldMonth = currentMonth - 1;
                 var oldYear = Day.getFullYear();
             } else {
-                var oldDay = extendedDay;
-                var oldMonth = extendedMonth - 1;
+                var oldDay = currentDay;
+                var oldMonth = currentMonth - 1;
                 var oldYear = Day.getFullYear();
             }
             break;
-        case '05','07','10','12':
+        case 4,6,9,11:
             if(extendedDay===31) {
                 var oldDay = 30;
-                var oldMonth = extendedMonth - 1;
+                var oldMonth = currentMonth - 1;
                 var oldYear = Day.getFullYear();
             } else {
-                var oldDay = extendedDay;
-                var oldMonth = extendedMonth - 1;
+                var oldDay = currentDay;
+                var oldMonth = currentMonth - 1;
                 var oldYear = Day.getFullYear();
             }
             break;
-        case '02','04','06','08','09','11':
-            var oldDay = extendedDay;
-            var oldMonth = extendedMonth - 1;
+        case 1,3,5,7,8,10:
+            var oldDay = currentDay;
+            var oldMonth = currentMonth - 1;
             var oldYear = Day.getFullYear();
             break;
         default:
@@ -223,7 +205,7 @@ function getNewUsersLastMonth(callback) {
     //var current_Year = Day.getFullYear();
     var USM = mongoose.model('User');
     var dat = [];
-    userModel.find({"created_at": {$gte: new Date(2015, 0, 15), $lt: new Date(2015, 1, 15)}}, function (err, docs) {
+    userModel.find({"created_at": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(Day.getFullYear(), currentMonth, currentDay)}}, function (err, docs) {
         if (err) {
             res.send(400, "A terrible error has occurred " + err);
         } else {
