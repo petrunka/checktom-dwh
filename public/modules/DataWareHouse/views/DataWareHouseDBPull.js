@@ -152,6 +152,92 @@ function getNewUsersToday(callback) {
 }
 exports.getNewUsersToday = getNewUsersToday;
 
+function getNewUsersLastMonth(callback) {
+    console.log("getUsersLastMonth started");
+    var Day = new Date();
+    var currentMonth = Day.getMonth() + 1;
+
+    if(currentMonth<10) {
+        var extendedMonth = '0'+currentMonth;
+        console.log(extendedMonth);
+    } else {
+        var extendedMonth = currentMonth;
+        console.log(extendedMonth);
+    }
+
+    var currentDay = Day.getDate();
+
+    if(currentDay<10) {
+        var extendedDay = '0' + currentDay;
+        console.log(extendedDay);
+    }
+    else {
+        var extendedDay = currentDay;
+        console.log(extendedDay);
+    }
+
+    switch (extendedMonth) {
+        case '01':
+            var oldDay = extendedDay;
+            var oldMonth = '12';
+            var oldYear = Day.getFullYear() - 1;
+            break;
+        case '03':
+            if(extendedDay>=29) {
+                var oldDay = 28;
+                var oldMonth = extendedMonth - 1;
+                var oldYear = Day.getFullYear();
+            } else {
+                var oldDay = extendedDay;
+                var oldMonth = extendedMonth - 1;
+                var oldYear = Day.getFullYear();
+            }
+            break;
+        case '05','07','10','12':
+            if(extendedDay===31) {
+                var oldDay = 30;
+                var oldMonth = extendedMonth - 1;
+                var oldYear = Day.getFullYear();
+            } else {
+                var oldDay = extendedDay;
+                var oldMonth = extendedMonth - 1;
+                var oldYear = Day.getFullYear();
+            }
+            break;
+        case '02','04','06','08','09','11':
+            var oldDay = extendedDay;
+            var oldMonth = extendedMonth - 1;
+            var oldYear = Day.getFullYear();
+            break;
+        default:
+            console.log("An error occurred!");
+            break;
+    }
+
+
+    //var startDay = oldYear + "," + oldMonth + "," + oldDay;
+    //var endDay = Day.getFullYear() + "," + extendedMonth + "," + extendedDay;
+
+    //var current_Day = Day.getDate();
+    //var current_Month = Day.getMonth();
+    //var current_Year = Day.getFullYear();
+    var USM = mongoose.model('User');
+    var dat = [];
+    userModel.find({"created_at": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(Day.getFullYear(), extendedMonth, extendedDay)}}, function (err, docs) {
+        if (err) {
+            res.send(400, "An error has occurred " + err);
+        } else {
+            for (var i = 0; i < docs.length; i++) {
+                console.log(docs[i]);
+                var dataSet = USM;
+                dataSet = docs[i];
+                dat.push(dataSet);
+            }
+        }
+        callback(dat);
+    });
+}
+exports.getNewUsersLastMonth = getNewUsersLastMonth;
 
 function getNewAdsToday(callback) {
     console.log("geNewtAdsToday started");

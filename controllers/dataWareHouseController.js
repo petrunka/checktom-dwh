@@ -98,12 +98,9 @@ exports.vladimir = function (req, res) {
 };
 
 exports.usersLastMonth = function(req, res) {
-    DBpull.getUsersCreatedAt("2014-01-13","2015-02-13",function(err, data) {
-        if (err) {
-            res.send(200, err);
-        } else {
-            res.send(200, data);
-        }
+    DBpull.getNewUsersLastMonth(function(data) {
+            res.send(data);
+            console.log(data);
     });
     console.log("data printed");
 };
