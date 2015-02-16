@@ -157,40 +157,43 @@ function getNewUsersLastMonth(callback) {
     var Day = new Date();
     var currentMonth = Day.getMonth();
     var currentDay = Day.getDate();
+    var currentYear = Day.getFullYear();
     console.log(currentDay + "." + currentMonth);
 
     switch (currentMonth) {
         case 0:
             var oldDay = currentDay;
             var oldMonth = 11;
-            var oldYear = Day.getFullYear() - 1;
+            var oldYear = currentYear - 1;
             break;
         case 2:
-            if(extendedDay>=29) {
+            if(currentDay>=29) {
                 var oldDay = 28;
                 var oldMonth = currentMonth - 1;
-                var oldYear = Day.getFullYear();
+                var oldYear = currentYear;
             } else {
                 var oldDay = currentDay;
                 var oldMonth = currentMonth - 1;
-                var oldYear = Day.getFullYear();
+                var oldYear = currentYear;
             }
             break;
-        case 4,6,9,11:
-            if(extendedDay===31) {
+        //cases 4,6,9
+        case 4:
+            if(currentDay===31) {
                 var oldDay = 30;
                 var oldMonth = currentMonth - 1;
-                var oldYear = Day.getFullYear();
+                var oldYear = currentYear;
             } else {
                 var oldDay = currentDay;
                 var oldMonth = currentMonth - 1;
-                var oldYear = Day.getFullYear();
+                var oldYear = currentYear;
             }
             break;
-        case 1,3,5,7,8,10:
+        //cases 1,3,5,7,8,10
+        case 1:
             var oldDay = currentDay;
             var oldMonth = currentMonth - 1;
-            var oldYear = Day.getFullYear();
+            var oldYear = currentYear;
             break;
         default:
             console.log("An error occurred!");
