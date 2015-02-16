@@ -92,7 +92,7 @@ define(
                         $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
                     }
                 });
-                
+
                 $.ajax({
                     url: '/getAds',
                     type: 'GET',
@@ -574,21 +574,29 @@ define(
                     type: 'GET',
                     success: function (data) {
                         $('#tu').empty();
-                        $('#usersAnalytics').empty();
+                       // $('#usersAnalytics').empty();
                         totalUsers = data.length;
                         $("#tu").append("Number of registered users by now: " + totalUsers);
                         $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
                     }
                 });
-              /*  $.ajax({
+                $.ajax({
                     url:'/usersLastMonth',
                     type: 'GET',
                     success: function(data) {
-                        $('#usersAnalytics').empty();
+                        //$('#usersAnalytics').empty();
                         lastMonthUsers = data.length;
                         $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
                     }
-                }); */
+                });
+                $.ajax({
+                    url: '/returningUsers',
+                    type: 'GET',
+                    success: function(data) {
+                        returningUsers = data.length;
+                        $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
+                    }
+                }); 
                 $.ajax({
                     url: '/getAds',
                     type: 'GET',
