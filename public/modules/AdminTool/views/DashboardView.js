@@ -571,7 +571,7 @@ define(
                         $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
                     }
                 });
-                $.ajax({
+              /*  $.ajax({
                     url:'/usersLastMonth',
                     type: 'GET',
                     success: function(data) {
@@ -579,7 +579,7 @@ define(
                         lastMonthUsers = data.length;
                         $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
                     }
-                });
+                }); */
                 $.ajax({
                     url: '/getAds',
                     type: 'GET',
