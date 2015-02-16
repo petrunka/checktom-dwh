@@ -24,7 +24,7 @@ define(
     function (App, DashboardTemplate, Backbone) {
         var self;
         var userData;
-        var adsData;
+        var adsData, adsLastMonth;
         var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers;
         var userPerMonth, sessionPerMonth, bounceRatePerMonth, avrTimeOnPagePerMonthData, percentNewSessionsData;
         var usersPerDeviceCategoryData, newAndTotalUsersPerMonthData;
@@ -102,6 +102,14 @@ define(
                         self.drawAds(adsData);
                         $('#Ads').hide();
                         $("#ta").append("Number of ads: " + totalAds);
+                    }
+                });
+                $.ajax({
+                    url:'/adsLastMonth',
+                    type: 'GET',
+                    success: function(data) {
+                        adsLastMonth = data.length;
+                        $('#usersAnalytics').append("Ads created last month: " + adsLastMonth + "<br>");
                     }
                 });
                 $.ajax({
@@ -598,6 +606,16 @@ define(
                         if ($('#usersAnalytics').isEmpty()) {
                             returningUsers = data.length;
                             $('#usersAnalytics').append("Returning users on Checktom: " + returningUsers + "<br>");
+                        }
+                    }
+                });
+                $.ajax({
+                    url:'/adsLastMonth',
+                    type: 'GET',
+                    success: function(data) {
+                        if($('#usersAnalytics').isEmpty()) {
+                            adsLastMonth = data.length;
+                            $("#usersAnalytics").append("Ads created last month: " + adsLastMonth + "<br>");
                         }
                     }
                 });
