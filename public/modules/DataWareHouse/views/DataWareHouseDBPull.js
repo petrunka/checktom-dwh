@@ -112,8 +112,8 @@ function getAdsCreatedAt(startDate, endDate, callback) {
     console.log("getAdsCreatedAt started");
     var GGM = mongoose.model('Gigs');
     var dat = [];
-    gigsModels.find({"created_at": {$gte: new Date(startDate.year, startDate.month, startDate.day), $lt: new Date(endDate.year, endDate.month, endDate.day)}}, function (err, docs) {
-        if (err) {
+    gigsModels.find({"CreatedAt": {$gte: new Date(startDate.year, startDate.month, startDate.day), $lt: new Date(endDate.year, endDate.month, endDate.day)}}, function (err, docs) {
+            if (err) {
             res.send(400, "An error has occurred " + err);
         } else {
             for (var i = 0; i < docs.length; i++) {
@@ -278,7 +278,7 @@ function getNewAdsLastMonth(callback) {
 
     var GSM = mongoose.model('Gigs');
     var dat = [];
-    gigsModels.find({"created_at": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(Day.getFullYear(), currentMonth, currentDay)}}, function (err, docs) {
+    gigsModels.find({"CreatedAt": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(currentYear, currentMonth, currentDay)}}, function (err, docs) {
         if (err) {
             res.send(400, "A terrible error has occurred " + err);
         } else {
