@@ -223,9 +223,9 @@ function getNewUsersLastMonth(callback) {
     //var current_Year = Day.getFullYear();
     var USM = mongoose.model('User');
     var dat = [];
-    userModel.find({"created_at": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(Day.getFullYear(), extendedMonth, extendedDay)}}, function (err, docs) {
+    userModel.find({"created_at": {$gte: new Date(2015, 1, 15), $lt: new Date(2015, 2, 15)}}, function (err, docs) {
         if (err) {
-            res.send(400, "An error has occurred " + err);
+            res.send(400, "A terrible error has occurred " + err);
         } else {
             for (var i = 0; i < docs.length; i++) {
                 console.log(docs[i]);
