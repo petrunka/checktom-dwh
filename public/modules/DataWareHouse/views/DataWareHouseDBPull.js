@@ -177,7 +177,6 @@ function getNewUsersLastMonth(callback) {
                 var oldYear = currentYear;
             }
             break;
-        //cases 4,6,9
         case 4:
         case 6:
         case 9:
@@ -191,7 +190,6 @@ function getNewUsersLastMonth(callback) {
                 var oldYear = currentYear;
             }
             break;
-        //cases 1,3,5,7,8,10
         case 1:
         case 3:
         case 5:
@@ -207,13 +205,6 @@ function getNewUsersLastMonth(callback) {
             break;
     }
 
-
-    //var startDay = oldYear + "," + oldMonth + "," + oldDay;
-    //var endDay = Day.getFullYear() + "," + extendedMonth + "," + extendedDay;
-
-    //var current_Day = Day.getDate();
-    //var current_Month = Day.getMonth();
-    //var current_Year = Day.getFullYear();
     var USM = mongoose.model('User');
     var dat = [];
     userModel.find({"created_at": {$gte: new Date(oldYear, oldMonth, oldDay), $lt: new Date(Day.getFullYear(), currentMonth, currentDay)}}, function (err, docs) {
@@ -231,6 +222,77 @@ function getNewUsersLastMonth(callback) {
     });
 }
 exports.getNewUsersLastMonth = getNewUsersLastMonth;
+
+function getReturningUsers(callback) {
+    console.log("getReturningUsers started");
+    var Day = new Date();
+    var currentMonth = Day.getMonth();
+    var currentDay = Day.getDate();
+    var currentYear = Day.getFullYear();
+    console.log(currentDay + "." + currentMonth);
+
+    switch (currentMonth) {
+        case 0:
+            var oldDay = currentDay;
+            var oldMonth = 11;
+            var oldYear = currentYear - 1;
+            break;
+        case 2:
+            if(currentDay>=29) {
+                var oldDay = 28;
+                var oldMonth = currentMonth - 1;
+                var oldYear = currentYear;
+            } else {
+                var oldDay = currentDay;
+                var oldMonth = currentMonth - 1;
+                var oldYear = currentYear;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+            if(currentDay===31) {
+                var oldDay = 30;
+                var oldMonth = currentMonth - 1;
+                var oldYear = currentYear;
+            } else {
+                var oldDay = currentDay;
+                var oldMonth = currentMonth - 1;
+                var oldYear = currentYear;
+            }
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+            var oldDay = currentDay;
+            var oldMonth = currentMonth - 1;
+            var oldYear = currentYear;
+            break;
+        default:
+            console.log("An error occurred!");
+            break;
+    }
+
+    var USM = mongoose.model('User');
+    var dat = [];
+    userModel.find({"created_at": {$gte: new Date(2010, 1, 1), $lt: new Date(oldYear, oldMonth, oldDay)}}, function (err, docs) {
+        if (err) {
+            res.send(400, "A terrible error has occurred " + err);
+        } else {
+            for (var i = 0; i < docs.length; i++) {
+                console.log(docs[i]);
+                var dataSet = USM;
+                dataSet = docs[i];
+                dat.push(dataSet);
+            }
+        }
+        callback(dat);
+    });
+}
+exports.getReturningUsers = getReturningUsers;
 
 function getNewAdsToday(callback) {
     console.log("geNewtAdsToday started");

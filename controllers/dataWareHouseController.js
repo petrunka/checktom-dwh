@@ -105,6 +105,14 @@ exports.usersLastMonth = function(req, res) {
     console.log("data printed");
 };
 
+exports.returningUsers = function(req, res) {
+    DBpull.getReturningUsers(function(data) {
+        res.send(data);
+        console.log(data);
+    });
+    console.log("data printed");
+};
+
 exports.getAllUsers = function (req, res) {
     DBpull.getAllUsers(function (data) {
         res.send(data);
