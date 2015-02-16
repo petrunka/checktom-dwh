@@ -25,7 +25,7 @@ define(
         var self;
         var userData;
         var adsData;
-        var newUsersToday, totalUsers, newAdsToday, totalAds;
+        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers;
         var userPerMonth, sessionPerMonth, bounceRatePerMonth, avrTimeOnPagePerMonthData, percentNewSessionsData;
         var usersPerDeviceCategoryData, newAndTotalUsersPerMonthData;
         var DashboardView = Backbone.Marionette.Layout.extend({
@@ -74,6 +74,14 @@ define(
                         $('#User').hide();
                         $("#tu").append("Number of registered users by now: " + totalUsers);
                         $('#usersAnalytics').append("Total users at Checktom: " + totalUsers + "<br>");
+                    }
+                });
+                $.ajax({
+                    url:'/usersLastMonth',
+                    type: 'GET',
+                    success: function(data) {
+                        lastMonthUsers = data.length;
+                        $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
                     }
                 });
                 $.ajax({
@@ -561,6 +569,15 @@ define(
                         totalUsers = data.length;
                         $("#tu").append("Number of registered users by now: " + totalUsers);
                         $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
+                    }
+                });
+                $.ajax({
+                    url:'/usersLastMonth',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#usersAnalytics').empty();
+                        lastMonthUsers = data.length;
+                        $("#usersAnalytics").append("Users registered last month: " + lastMonthUsers + "<br>");
                     }
                 });
                 $.ajax({
