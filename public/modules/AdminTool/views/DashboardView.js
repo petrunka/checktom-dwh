@@ -584,9 +584,9 @@ define(
                         $('#tu').empty();
                         if ($('#usersAnalytics').isEmpty()) {
                             totalUsers = data.length;
-                            $("#tu").append("Number of registered users by now: " + totalUsers);
                             $('#usersAnalytics').append("Total users at Checktom: " + totalUsers);
                         }
+                        $("#tu").append("Number of registered users by now: " + totalUsers);
                     }
                 });
                 $.ajax({
