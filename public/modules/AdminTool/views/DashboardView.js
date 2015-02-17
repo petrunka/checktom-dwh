@@ -25,7 +25,7 @@ define(
         var self;
         var userData;
         var adsData, adsLastMonth, articles;
-        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers, FBusers;
+        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers, FBusers, mailUsers;
         var userPerMonth, sessionPerMonth, bounceRatePerMonth, avrTimeOnPagePerMonthData, percentNewSessionsData;
         var usersPerDeviceCategoryData, newAndTotalUsersPerMonthData;
         var DashboardView = Backbone.Marionette.Layout.extend({
@@ -126,6 +126,14 @@ define(
                     success: function(data) {
                         FBusers = data.length;
                         $('#usersAnalytics').append("Users registered with Facebook: " + FBusers + "<br>");
+                    }
+                });
+                $.ajax({
+                    url:'/getMailUsers',
+                    type:'GET',
+                    success: function(data) {
+                        mailUsers = data.length;
+                        $('#usersAnalytics').append("Users registered by e-mail: " + mailUsers + "<br>");
                     }
                 });
                 $.ajax({
@@ -652,6 +660,16 @@ define(
                         FBusers = data.length;
                         if($('#usersAnalytics').isEmpty()) {
                             $('#usersAnalytics').append("Users registered with Facebook: " + FBusers + "<br>");
+                        }
+                    }
+                });
+                $.ajax({
+                    url:'/getMailUsers',
+                    type:'GET',
+                    success: function(data) {
+                        mailUsers = data.length;
+                        if($('#usersAnalytics').isEmpty()) {
+                            $('#usersAnalytics').append("Users registered by e-mail: " + mailUsers + "<br>");
                         }
                     }
                 });
