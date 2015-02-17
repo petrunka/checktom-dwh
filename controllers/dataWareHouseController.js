@@ -135,7 +135,7 @@ exports.getAds = function (req, res) {
     });
 };
 
-exports.getAllArticles = function(req, res) {
+exports.getArticles = function(req, res) {
     DBpull.getAllArticles(function(data) {
         res.send(data);
         console.log(data);
