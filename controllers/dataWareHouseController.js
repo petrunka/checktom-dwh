@@ -127,12 +127,21 @@ exports.getAllUsers = function (req, res) {
     });
 };
 
+
 exports.getAds = function (req, res) {
     DBpull.getAllAds(function (data) {
         res.send(data);
         console.log(data);
     });
 };
+
+exports.getAllArticles = function(req, res) {
+    DBpull.getAllArticles(function(data) {
+        res.send(data);
+        console.log(data);
+    });
+};
+
 exports.octavian = function (req, res) {
 
     console.log('octavian initiated');

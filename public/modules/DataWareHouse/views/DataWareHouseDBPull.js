@@ -6,6 +6,7 @@ var FacebookModel = require('mongoose').model('FacebookModel');
 var pageViewsPerMonth = require('mongoose').model('PageViewsPerMonth');
 var userModel = require('mongoose').model('User');
 var gigsModels = require('mongoose').model('Gigs');
+var articleModel = require('mongoose').model('Articles');
 
 function getAllUsers(callback) {
     console.log("getAllUsers started");
@@ -88,6 +89,24 @@ function getAllAds(callback) {
 }
 exports.getAllAds = getAllAds;
 
+function getAllArticles(callback) {
+    console.log('get all articles');
+    var AM = mongoose.model('Articles');
+    var dat = [];
+    articleModel.find({}, function(err, docs) {
+        if(err) {
+            res.send(400, "A critical error occurred" + err);
+        } else {
+            for(var i=0; i<docs.length; i++) {
+                var dataSet = AM;
+                dataSet = docs[i];
+                dat.push(dataSet);
+            }
+        }
+        callback(dat);
+    });
+}
+exports.getAllArticles = getAllArticles;
 
 function getUsersCreatedAt(startDate, endDate, callback) {
     console.log("getUsersCreatedAt started");

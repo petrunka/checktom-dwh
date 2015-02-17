@@ -11,6 +11,7 @@ module.exports = function (app, passport) {
     app.get('/returningUsers', dataWareHouseController.returningUsers);
     app.get('/adsLastMonth', dataWareHouseController.adsLastMonth);
     app.get('/getAds', dataWareHouseController.getAds);
+    app.get('/getAllArticles', dataWareHouseController.getAllArticles);
     app.get('/getNewAds',dataWareHouseController.getNewAds);
     app.get('/getNewAndTotalUsersPerMonth', dataWareHouseController.getNewAndTotalUsersPerMonth);
     app.get('/analyticsSec',dataWareHouseController.analyticsSec);
