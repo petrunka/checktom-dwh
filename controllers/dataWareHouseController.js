@@ -142,6 +142,13 @@ exports.getArticles = function(req, res) {
     });
 };
 
+exports.getFbUsers = function(req,res) {
+    DBpull.getUsersRegisteredWithFacebook(function(data) {
+        res.send(data);
+        console.log(data);
+    });
+};
+
 exports.octavian = function (req, res) {
 
     console.log('octavian initiated');

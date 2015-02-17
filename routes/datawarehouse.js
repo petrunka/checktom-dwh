@@ -13,6 +13,7 @@ module.exports = function (app, passport) {
     app.get('/getAds', dataWareHouseController.getAds);
     app.get('/getArticles', dataWareHouseController.getArticles);
     app.get('/getNewAds',dataWareHouseController.getNewAds);
+    app.get('/getFbUsers', dataWareHouseController.getFbUsers);
     app.get('/getNewAndTotalUsersPerMonth', dataWareHouseController.getNewAndTotalUsersPerMonth);
     app.get('/analyticsSec',dataWareHouseController.analyticsSec);
     app.get('/authAdminUser',dataWareHouseController.authAdminUser);
