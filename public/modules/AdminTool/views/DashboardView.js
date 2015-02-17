@@ -25,7 +25,7 @@ define(
         var self;
         var userData;
         var adsData, adsLastMonth, articles;
-        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers;
+        var newUsersToday, totalUsers, newAdsToday, totalAds, lastMonthUsers, returningUsers, FBusers;
         var userPerMonth, sessionPerMonth, bounceRatePerMonth, avrTimeOnPagePerMonthData, percentNewSessionsData;
         var usersPerDeviceCategoryData, newAndTotalUsersPerMonthData;
         var DashboardView = Backbone.Marionette.Layout.extend({
@@ -118,6 +118,14 @@ define(
                     success:function(data) {
                         articles = data.length;
                         $('#usersAnalytics').append("Articles on Checktom: " + articles + "<br>");
+                    }
+                });
+                $.ajax({
+                    url:'/getFbUsers',
+                    type:'GET',
+                    success: function(data) {
+                        FBusers = data.length;
+                        $('#usersAnalytics').append("Users registered with Facebook: " + FBusers + "<br>");
                     }
                 });
                 $.ajax({
@@ -635,6 +643,16 @@ define(
                         self.drawAds(data);
                         totalAds = data.length;
                         $("#ta").append("Number of ads: " + totalAds + "<br>");
+                    }
+                });
+                $.ajax({
+                    url:'/getFbUsers',
+                    type:'GET',
+                    success: function(data) {
+                        FBusers = data.length;
+                        if($('#usersAnalytics').isEmpty()) {
+                            $('#usersAnalytics').append("Users registered with Facebook: " + FBusers + "<br>");
+                        }
                     }
                 });
                 $.ajax({
