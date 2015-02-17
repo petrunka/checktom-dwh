@@ -146,6 +146,25 @@ function getUsersRegisteredWithFacebook(callback) {
 }
 exports.getUsersRegisteredWithFacebook = getUsersRegisteredWithFacebook;
 
+function getUsersRegisteredWithEmail(callback) {
+    console.log("getUsersRegisteredWithFB");
+    var UFB = mongoose.model('User');
+    var dat = [];
+    userModel.find({"provider":"local"}, function(err, docs) {
+        if(err) {
+            res.send(400, "An error occurred " + err);
+        } else {
+            for(var i=0; i<docs.length; i++) {
+                var dataSet = UFB;
+                dataSet = docs[i];
+                dat.push(dataSet);
+            }
+        }
+        callback(dat);
+    })
+}
+exports.getUsersRegisteredWithEmail = getUsersRegisteredWithEmail;
+
 function getAdsCreatedAt(startDate, endDate, callback) {
     console.log("getAdsCreatedAt started");
     var GGM = mongoose.model('Gigs');

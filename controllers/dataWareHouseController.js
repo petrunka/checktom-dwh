@@ -149,6 +149,13 @@ exports.getFbUsers = function(req,res) {
     });
 };
 
+exports.getMailUsers = function(req, res) {
+    DBpull.getUsersRegisteredWithEmail(function(data) {
+        res.send(data);
+        console.log(data);
+    });
+};
+
 exports.octavian = function (req, res) {
 
     console.log('octavian initiated');
