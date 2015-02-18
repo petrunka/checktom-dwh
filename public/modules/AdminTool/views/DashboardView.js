@@ -792,7 +792,7 @@ define(
                 $('#getLog').show();
                 $('#getSecondLog').hide();
                 $('#main-view').append('<br><br>');
-                if(!$('#getLog').isEmpty()) {
+                if($('#getLog')) {
                     $('#usersAnalytics').show();
                 }
                 var $titleLabel = $('#titleLabel');
