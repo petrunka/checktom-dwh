@@ -789,12 +789,12 @@ define(
                 $('#logLabel').show();
                 $('#datePicker').show();
                 $('#datePicker1').show();
-                $('#main-view').append($('#getLog'));
-                //$('#getLog').show();
+                $('#getLog').show();
                 $('#getSecondLog').hide();
                 $('#main-view').append('<br><br>');
-                $('#main-view').append($('#usersAnalytics'));
-                //$('#usersAnalytics').show();
+                if(!$('#getLog').isEmpty()) {
+                    $('#usersAnalytics').show();
+                }
                 var $titleLabel = $('#titleLabel');
                 var text = $titleLabel.text();
                 $titleLabel.text(text.replace(text, "User activity log"));
