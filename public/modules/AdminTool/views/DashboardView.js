@@ -758,6 +758,7 @@ define(
                 $('#left').hide();
                 $('#third').hide();
                 $('#AdsDate').hide();
+                $('#usersAnalytics').hide();
                 $('#main-view').show();
                 $('#logLabel1').hide();
                 $('#logLabel2').hide();
@@ -819,6 +820,7 @@ define(
                 $('#datePicker1').show();
                 $('#datePicker1').append('<br>')
                 $('#getSecondLog').show();
+                $('#usersAnalytics').hide();
                 var $titleLabel = $('#titleLabel');
                 var text = $titleLabel.text();
                 $titleLabel.text(text.replace(text, "Ads activity log"));
@@ -869,6 +871,7 @@ define(
                 $('#nu').show();
                 $('#right').show();
                 $('#third').show();
+                $('#usesAnalytics').hide();
             },
             logout: function (event) {
                 event.preventDefault();
@@ -893,6 +896,7 @@ define(
                 $('#datePicker').hide();
                 $('#datePicker1').hide();
                 $('#AdsDate').hide();
+                $('#usersAnalytics').hide();
                 $('#getLog').hide();
                 $('#getSecondLog').hide();
                 $('#titleLabel').show();
@@ -965,6 +969,7 @@ define(
                 $('#third').hide();
                 $('#main-view').show();
                 $('#UserDate').hide();
+                $('#usersAnalytics').hide();
                 $('#AdsDate').hide();
                 $('#main-view').addClass('small-2');
                 $('#logLabel').hide();
@@ -1037,6 +1042,7 @@ define(
                 $('#UserDate').hide();
                 $('#datePicker').hide();
                 $('#datePicker1').hide();
+                $('#usersAnalytics').hide();
                 $('#getLog').hide();
                 $('#getSecondLog').hide();
                 $('#titleLabel').show();
@@ -1105,6 +1111,7 @@ define(
                 $('#main-view').show();
                 $('#UserDate').hide();
                 $('#datePicker').hide();
+                $('#usersAnalytics').hide();
                 $('#datePicker1').hide();
                 $('#getLog').hide();
                 $('#getSecondLog').hide();
@@ -1174,6 +1181,7 @@ define(
                 $('#AdsDate').hide();
                 $('#UserDate').hide();
                 $('#datePicker').hide();
+                $('#usersAnalytics').hide();
                 $('#datePicker1').hide();
                 $('#getLog').hide();
                 $('#getSecondLog').hide();
